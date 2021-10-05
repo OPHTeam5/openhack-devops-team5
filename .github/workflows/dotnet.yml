@@ -22,7 +22,6 @@ jobs:
     - name: Show working directory
       run: tree
     - name: Restore dependencies
-      run: tree
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
