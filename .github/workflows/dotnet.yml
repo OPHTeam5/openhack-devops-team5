@@ -19,6 +19,8 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+    - name: Show working directory
+      run: tree
     - name: Restore dependencies
       run: tree
       run: dotnet restore
