@@ -41,7 +41,7 @@ jobs:
       uses: seveibar/url-health-check-action@v1.10
       with:
         # Target URL(s), split by |
-        url: https://openhacktch9q931poi-staging.azurewebsites.net/api/healthcheck/poi2
+        url: https://openhacktch9q931poi-staging.azurewebsites.net/api/healthcheck/poi
         # Number of unsuccessful attempts to call URL before giving up
         max-attempts: 1
         # Time before allowing request to time out
