@@ -21,6 +21,8 @@ jobs:
         dotnet-version: 5.0.x
     - name: Show working directory
       run: tree
+    - name: Change to POI Directory
+      run: cd apis/poi
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
