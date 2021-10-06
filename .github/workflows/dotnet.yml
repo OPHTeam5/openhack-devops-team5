@@ -30,7 +30,7 @@ jobs:
     - name: Test
       run: dotnet test apis/poi/poi.sln --no-restore
       
-    - name: Create a new issue Test 1234
+    - name: Create a new issue on fail
       # You may pin to the exact commit or the version.
       # uses: hettlage/open-issue@b1c3215a274690d9251db016735eb17be0bb6437
       if: ${{ failure() }}
@@ -39,7 +39,7 @@ jobs:
         # Github Token
         token: ${{ secrets.GITHUB_TOKEN }}
         # Title for the issue
-        title: test 1234
+        title: Build number fail ${GITHUB_RUN_NUMBER}
         # Issue body
         body: test 1234
         # Issue assignees
