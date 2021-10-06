@@ -34,3 +34,17 @@ jobs:
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_STAGING }}
         images: ${{ secrets.ACR_LOGIN_SERVER }}/devopsoh/api-poi:${{ github.run_number }}
         slot-name: 'staging'
+        
+    - name: GET URL Health Check
+      # You may pin to the exact commit or the version.
+      # uses: seveibar/url-health-check-action@290ddd0d33480c4d52ff1893df8af480a39a8241
+      uses: seveibar/url-health-check-action@v1.10
+      with:
+        # Target URL(s), split by |
+        url: https://openhacktch9q931poi-staging.azurewebsites.net/api/healthcheck/poi
+        # Number of unsuccessful attempts to call URL before giving up
+        max-attempts: 1
+        # Time before allowing request to time out
+        request-timeout: 10s
+        # Time to wait before giving up
+        max-time: 1m
