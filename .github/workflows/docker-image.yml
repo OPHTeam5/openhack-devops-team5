@@ -16,5 +16,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file apis/poi/web/Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build apis/poi/web --file apis/poi/web/Dockerfile --tag my-image-name:$(date +%s)
       
