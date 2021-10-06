@@ -41,10 +41,10 @@ jobs:
         # Check the following URLs one by one sequentially
         url: https://openhacktch9q931poi-staging.azurewebsites.net/api/healthcheck/poi
         # Follow redirects, or just report success on 3xx status codes
-        follow-redirect: no # Optional, defaults to "no"
+        follow-redirect: no
         # Fail this action after this many failed attempts
-        max-attempts: 3 # Optional, defaults to 1
+        max-attempts: 3
         # Delay between retries
-        retry-delay: 5s # Optional, only applicable to max-attempts > 1
+        retry-delay: 5s
         # Retry all errors, including 404. This option might trigger curl upgrade.
-        retry-all: no # Optional, defaults to "no"
+        retry-all: no
