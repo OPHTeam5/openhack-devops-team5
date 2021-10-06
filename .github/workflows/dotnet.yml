@@ -27,6 +27,8 @@ jobs:
       run: dotnet restore apis/poi/poi.sln
     - name: Build
       run: dotnet build apis/poi/poi.sln --no-restore
+    - name: Test
+      run: dotnet test apis/poi/poi.sln --no-restore
       
     - name: Create a new issue Test 1234
       # You may pin to the exact commit or the version.
