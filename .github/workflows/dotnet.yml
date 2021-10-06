@@ -41,8 +41,8 @@ jobs:
         # Title for the issue
         title: Build number fail ${{ github.run_number }}
         # Issue body
-        body: test 1234
+        body: Build id ${{ github.run_number }}
         # Issue assignees
-        assignees: isamabufool
+        assignees: ${{github.repository_owner}}
 
     
