@@ -35,16 +35,16 @@ jobs:
         images: ${{ secrets.ACR_LOGIN_SERVER }}/devopsoh/api-poi:${{ github.run_number }}
         slot-name: 'staging'
         
-    - name: GET URL Health Check
-      # You may pin to the exact commit or the version.
-      # uses: seveibar/url-health-check-action@290ddd0d33480c4d52ff1893df8af480a39a8241
-      uses: seveibar/url-health-check-action@v1.10
+    - name: Check the deployed service URL
+      uses: jtalk/url-health-check-action@v2
       with:
-        # Target URL(s), split by |
+        # Check the following URLs one by one sequentially
         url: https://openhacktch9q931poi-staging.azurewebsites.net/api/healthcheck/poi
-        # Number of unsuccessful attempts to call URL before giving up
-        max-attempts: 1
-        # Time before allowing request to time out
-        request-timeout: 10s
-        # Time to wait before giving up
-        max-time: 1m
+        # Follow redirects, or just report success on 3xx status codes
+        follow-redirect: no # Optional, defaults to "no"
+        # Fail this action after this many failed attempts
+        max-attempts: 3 # Optional, defaults to 1
+        # Delay between retries
+        retry-delay: 5s # Optional, only applicable to max-attempts > 1
+        # Retry all errors, including 404. This option might trigger curl upgrade.
+        retry-all: no # Optional, defaults to "no"
