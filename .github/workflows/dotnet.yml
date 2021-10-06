@@ -39,7 +39,7 @@ jobs:
         # Github Token
         token: ${{ secrets.GITHUB_TOKEN }}
         # Title for the issue
-        title: Build number fail ${{ GITHUB_RUN_NUMBER }}
+        title: Build number fail ${{ github.run_number }}
         # Issue body
         body: test 1234
         # Issue assignees
