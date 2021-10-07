@@ -37,7 +37,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Start staging slot 
-      id: Start slot
+      id: start_slot
       run: |
         az webapp start --name ${{ env.app-name }} --resource-group ${{ env.rg-name }} -s staging
         
@@ -76,8 +76,8 @@ jobs:
         url=$(az webapp show -g ${{ env.rg-name }} -n ${{ env.app-name }} --query "defaultHostName" -o tsv)
         echo "::set-output name=url::http://$url"
         
-    - name: Start staging slot 
-      id: Stop slot
+    - name: Stop staging slot 
+      id: stop_slot
       run: |
         az webapp stop --name ${{ env.app-name }} --resource-group ${{ env.rg-name }} -s staging
 
