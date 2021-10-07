@@ -30,7 +30,7 @@ jobs:
       run: |
         docker push ${{ secrets.ACR_LOGIN_SERVER }}/devopsoh/api-poi:${{ github.run_number }}
 
-  deploy-staging:
+  deploy_staging:
     needs: creating_image
     runs-on: ubuntu-latest
 
