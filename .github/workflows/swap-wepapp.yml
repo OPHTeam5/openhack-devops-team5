@@ -87,6 +87,11 @@ jobs:
         az webapp deployment slot swap -g ${{ env.rg-name }} -n ${{ env.app-name }} -s staging
         url=$(az webapp show -g ${{ env.rg-name }} -n ${{ env.app-name }} --query "defaultHostName" -o tsv)
         echo "::set-output name=url::http://$url"
+    
+    - name: Stopping Staging WepApp
+      if {{success()}}
+      run:
+        az webapp stop --name ${{ env.app-name }} --resource-group ${{ env.rg-name }} -s staging
 
     - name: az cli logout
       run: az logout
