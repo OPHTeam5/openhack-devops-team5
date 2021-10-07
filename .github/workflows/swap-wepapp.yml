@@ -48,7 +48,7 @@ jobs:
         images: ${{ secrets.ACR_LOGIN_SERVER }}/devopsoh/api-poi:${{ github.run_number }}
         slot-name: 'staging'
   
-  checking-staging:
+  checking_staging:
     needs: deploy_staging
     runs-on: ubuntu-latest
     - name: Check the deployed service URL
@@ -65,8 +65,8 @@ jobs:
         # Retry all errors, including 404. This option might trigger curl upgrade.
         retry-all: false
   
-    checking-staging:
-      needs: checking-staging
+    deploy_prod:
+      needs: checking_staging
       runs-on: ubuntu-latest
 
       environment:
