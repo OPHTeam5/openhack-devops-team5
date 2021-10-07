@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: CD Webapp POI
 
 on:
   workflow_dispatch:
@@ -39,6 +39,11 @@ jobs:
       url: ${{ steps.deploywebapp.outputs.webapp-url }}
 
     steps:
+    - name: Started Staging WepApp
+      if: ${{ success() }}
+      run:
+        az webapp start --name ${{ env.app-name }} --resource-group ${{ env.rg-name }} -s staging
+    
     - name: Deploy to Web App
       id: deploywebapp
       uses: azure/webapps-deploy@v2
@@ -89,7 +94,7 @@ jobs:
         echo "::set-output name=url::http://$url"
     
     - name: Stopping Staging WepApp
-      if {{success()}}
+      if: ${{ success() }}
       run:
         az webapp stop --name ${{ env.app-name }} --resource-group ${{ env.rg-name }} -s staging
 
